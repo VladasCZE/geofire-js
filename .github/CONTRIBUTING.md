@@ -63,8 +63,6 @@ up this repo with continuous integration to double check those things for you.
 Most non-trivial changes should include some extra test coverage. If you aren't sure how to add
 tests, feel free to submit regardless and ask us for some advice.
 
-Finally, you will need to sign our [Contributor License Agreement](https://cla.developers.google.com/about/google-individual)
-before we can accept your pull request.
 
 
 ## <a name="local-setup"></a>Need to get set up locally?

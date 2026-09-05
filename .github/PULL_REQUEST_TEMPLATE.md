@@ -13,11 +13,6 @@ Add tests (if applicable)
 Most non-trivial changes should include some extra test coverage. If you aren't sure how to add
 tests, feel free to submit regardless and ask us for some advice.
 
-Sign our CLA
-==============================
-Please sign our Contributor License Agreement (https://cla.developers.google.com/about/google-individual)
-before sending PRs. We cannot accept code without this.
-
 -->
 
 
