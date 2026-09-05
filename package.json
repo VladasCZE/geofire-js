@@ -11,7 +11,7 @@
     "coverage": "lerna run coverage"
   },
   "devDependencies": {
-    "lerna": "^3.22.1"
+    "lerna": "10.0.1"
   },
   "repository": {
     "type": "git",
