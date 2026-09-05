@@ -10,13 +10,13 @@
     "prepare": "npm run build"
   },
   "author": "Firebase (https://firebase.google.com/)",
-  "homepage": "https://github.com/firebase/geofire-js/",
+  "homepage": "https://github.com/VladasCZEgeofire-js/",
   "repository": {
     "type": "git",
     "url": "https://github.com/VladasCZE/geofire-js.git"
   },
   "bugs": {
-    "url": "https://github.com/firebase/geofire-js/issues"
+    "url": "https://github.com/VladasCZE/geofire-js/issues"
   },
   "license": "MIT",
   "keywords": [
