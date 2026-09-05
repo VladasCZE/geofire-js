@@ -1,4 +1,4 @@
-# GeoFire for JavaScript [![Actions Status][gh-actions-badge]][gh-actions] [![Coverage Status](https://coveralls.io/repos/github/firebase/geofire-js/badge.svg?branch=master)](https://coveralls.io/github/firebase/geofire-js?branch=master) [![Version](https://badge.fury.io/gh/firebase%2Fgeofire-js.svg)](http://badge.fury.io/gh/firebase%2Fgeofire-js)
+# GeoFire for JavaScript [![Actions Status][gh-actions-badge]][gh-actions] [![Coverage Status](https://coveralls.io/repos/github/VladasCZE/geofire-js/badge.svg?branch=master)](https://coveralls.io/github/VladasCZE/geofire-js?branch=master) [![Version](https://badge.fury.io/gh/firebase%2Fgeofire-js.svg)](http://badge.fury.io/gh/firebase%2Fgeofire-js)
 
 GeoFire is an open-source library that allows you to store and query a set of keys based on their
 geographic location. At its heart, GeoFire simply stores locations with string keys. Its main
@@ -28,7 +28,7 @@ and [Java](https://github.com/firebase/geofire-java).
 * [Add GeoFire to your project](#add-geofire-to-your-project)
 * [Documentation](#documentation)
 * [Examples](#examples)
-* [Release Notes](https://github.com/firebase/geofire-js/releases)
+* [Release Notes](https://github.com/VladasCZE/geofire-js/releases)
 * [Migration Guides](#migration-guides)
 * [Contributing](#contributing)
 
@@ -42,7 +42,7 @@ $ npm install geofire firebase --save
 
 ### HTML
 
-Alternatively, you can include GeoFire in your HTML. To do so download a minified or non-minified version of GeoFire from the [releases page of this GitHub repository](https://github.com/firebase/geofire-js/releases). Then, deploy it to Hosting in your Firebase project. 
+Alternatively, you can include GeoFire in your HTML. To do so download a minified or non-minified version of GeoFire from the [releases page of this GitHub repository](https://github.com/VladasCZE/geofire-js/releases). Then, deploy it to Hosting in your Firebase project. 
 
 ```html
 <!-- Firebase -->
@@ -53,13 +53,6 @@ Alternatively, you can include GeoFire in your HTML. To do so download a minifie
 <script src="https://my-firebase-project.web.app/geofire-5.0.1.min.js"></script>
 ```
 
-### Bower
-
-If you use Bower, the Firebase dependency will be downloaded automatically:
-
-```bash
-$ bower install geofire --save
-```
 
 ## Documentation
 
@@ -91,8 +84,8 @@ Using an older version of GeoFire and want to upgrade to the latest version? Che
 If you'd like to contribute to GeoFire, please first read through our [contribution
 guidelines](.github/CONTRIBUTING.md). Local setup instructions are available [here](.github/CONTRIBUTING.md#local-setup).
 
-[gh-actions]: https://github.com/firebase/geofire-js/actions
-[gh-actions-badge]: https://github.com/firebase/geofire-js/workflows/CI%20Tests/badge.svg
+[gh-actions]: https://github.com/VladasCZE/geofire-js/actions
+[gh-actions-badge]: https://github.com/VladasCZE/geofire-js/workflows/CI%20Tests/badge.svg
 
 ## License
 

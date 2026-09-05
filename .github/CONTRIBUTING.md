@@ -28,11 +28,11 @@ If the official documentation doesn't help, try asking a question through our
 
 Yeah, we're definitely not perfect!
 
-Search through [old issues](https://github.com/firebase/geofire-js/issues) before submitting a new
+Search through [old issues](https://github.com/VladasCZE/geofire-js/issues) before submitting a new
 issue as your question may have already been answered.
 
 If your issue appears to be a bug, and hasn't been reported,
-[open a new issue](https://github.com/firebase/geofire-js/issues/new). Please use the provided bug
+[open a new issue](https://github.com/VladasCZE/geofire-js/issues/new). Please use the provided bug
 report template and include a minimal repro.
 
 If you are up to the challenge, [submit a pull request](#submit) with a fix!
@@ -41,8 +41,8 @@ If you are up to the challenge, [submit a pull request](#submit) with a fix!
 ## <a name="feature"></a>Have a feature request?
 
 Great, we love hearing how we can improve our products! After making sure someone hasn't already
-requested the feature in the [existing issues](https://github.com/firebase/geofire-js/issues), go
-ahead and [open a new issue](https://github.com/firebase/geofire-js/issues/new). Feel free to remove
+requested the feature in the [existing issues](https://github.com/VladasCZE/geofire-js/issues), go
+ahead and [open a new issue](https://github.com/VladasCZE/geofire-js/issues/new). Feel free to remove
 the bug report template and instead provide an explanation of your feature request. Provide code
 samples if applicable. Try to think about what it will allow you to do that you can't do today? How
 will it make current workarounds straightforward? What potential bugs and edge cases does it help to
@@ -51,7 +51,7 @@ avoid?
 
 ## <a name="submit"></a>Want to submit a pull request?
 
-Sweet, we'd love to accept your contribution! [Open a new pull request](https://github.com/firebase/geofire-js/pull/new/master)
+Sweet, we'd love to accept your contribution! [Open a new pull request](https://github.com/VladasCZE/geofire-js/pull/new/master)
 and fill out the provided form.
 
 **If you want to implement a new feature, please open an issue with a proposal first so that we can
@@ -75,24 +75,20 @@ set up.
 ### Install Dependencies
 
 ```bash
-$ git clone https://github.com/firebase/geofire-js.git
+$ git clone https://github.com/VladasCZE/geofire-js.git
 $ cd geofire-js         # go to the geofire-js directory
-$ npm install -g gulp   # globally install gulp task runner
-$ npm install -g bower  # globally install Bower package manager
 $ npm install           # install local npm build / test dependencies
-$ bower install         # install local JavaScript dependencies
+$ npm run bootstrap     # bootstrap packages using Lerna
 ```
 
 ### Lint, Build, and Test
 
 ```bash
-$ gulp           # lint, build, and test
+$ npm run lint      # just lint
+$ npm run build     # just build
+$ npm run test      # just test
 
-$ gulp lint      # just lint
-$ gulp build     # just build
-$ gulp test      # just test
-
-$ gulp watch     # lint and build whenever source files change
+$ npm run coverage  # generate coverage reports
 ```
 
-The output files - `geofire.js` and `geofire.min.js` - are written to the `/dist/` directory.
+The output files for each package are written to their respective `packages/<package>/dist/` directory.
