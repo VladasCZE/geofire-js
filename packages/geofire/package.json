@@ -42,7 +42,7 @@
     "geofire-common": "6.0.0"
   },
   "peerDependencies": {
-    "firebase": "9.x.x"
+    "firebase": "12.18.0"
   },
   "devDependencies": {
     "@types/chai": "5.2.3",
