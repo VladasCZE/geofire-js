@@ -53,7 +53,7 @@ export function validateKey(key: string): void {
     // Firebase can only stored child paths up to 768 characters
     // The child path for this key is at the least: 'i/<geohash>key'
     error = 'key is too long to be stored in Firebase';
-  } else if (/[\[\].#$\/\u0000-\u001F\u007F]/.test(key)) {
+  } else if (/[\[\].#$\/\u0000-\u001F\u007F]/.test(key)) { // eslint-disable-line no-control-regex, no-useless-escape
     // Firebase does not allow node keys to contain the following characters
     error = 'key cannot contain any of the following characters: . # $ ] [ /';
   }
