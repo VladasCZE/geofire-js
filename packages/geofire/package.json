@@ -1,7 +1,7 @@
 {
   "name": "geofire",
   "description": "Location-based querying and filtering using Firebase",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "scripts": {
     "build": "rollup -c",
     "coverage": "nyc report --reporter=text-lcov > ./coverage/lcov.info",
@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "@firebase/database-types": "1.0.22",
-    "geofire-common": "6.0.0"
+    "geofire-common": "7.0.0"
   },
   "peerDependencies": {
     "firebase": "12.18.0"
