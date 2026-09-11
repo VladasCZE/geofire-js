@@ -8,6 +8,7 @@
       "dom"
     ],
     "moduleResolution": "bundler",
+    "strict": true,
     "noImplicitAny": false,
     "outDir": "dist",
     "sourceMap": false,
