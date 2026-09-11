@@ -16,6 +16,7 @@ const plugins = [
 
 const completeBuilds = [{
     input: 'src/index.ts',
+    external: ['firebase/database', '@firebase/database-types'],
     output: [{
         file: pkg.main,
         format: 'cjs'
@@ -29,19 +30,27 @@ const completeBuilds = [{
   },
   {
     input: 'src/index.ts',
+    external: ['firebase/database', '@firebase/database-types'],
     output: {
       file: pkg.browser,
       format: 'umd',
-      name: GLOBAL_NAME
+      name: GLOBAL_NAME,
+      globals: {
+        'firebase/database': 'firebase.database' // Map to firebase.database if loaded globally
+      }
     },
     plugins: [...plugins, terser()]
   },
   {
     input: 'src/index.ts',
+    external: ['firebase/database', '@firebase/database-types'],
     output: {
       file: pkg.index,
       format: 'umd',
-      name: GLOBAL_NAME
+      name: GLOBAL_NAME,
+      globals: {
+        'firebase/database': 'firebase.database'
+      }
     },
     plugins: [...plugins]
   }
