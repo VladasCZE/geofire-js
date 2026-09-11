@@ -87,6 +87,10 @@ guidelines](.github/CONTRIBUTING.md). Local setup instructions are available [he
 [gh-actions]: https://github.com/VladasCZE/geofire-js/actions
 [gh-actions-badge]: https://github.com/VladasCZE/geofire-js/workflows/CI%20Tests/badge.svg
 
+## Acknowledgments
+
+This repository is a fork of the original Google [GeoFire for JavaScript](https://github.com/firebase/geofire-js) project.
+
 ## License
 
-© Google, 2022. Licensed under [The MIT License](LICENSE).
+Licensed under [The MIT License](LICENSE).

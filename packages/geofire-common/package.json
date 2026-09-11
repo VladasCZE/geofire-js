@@ -9,7 +9,7 @@
     "test": "nyc --reporter=html --reporter=text mocha --exit",
     "prepare": "npm run build"
   },
-  "author": "Firebase (https://firebase.google.com/)",
+  "author": "VladasCZE",
   "homepage": "https://github.com/VladasCZEgeofire-js/",
   "repository": {
     "type": "git",

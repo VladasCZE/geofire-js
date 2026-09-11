@@ -18,8 +18,7 @@ which just ask about usage will be closed. Here are some resources to get help:
 - Read the full [API reference](../docs/reference.md)
 - Try out some [examples](../examples/README.md)
 
-If the official documentation doesn't help, try asking a question through our
-[official support channels](https://firebase.google.com/support/).
+If the official documentation doesn't help, try asking a question through Github Issues.
 
 **Please avoid double posting across multiple channels!**
 

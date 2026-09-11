@@ -11,9 +11,9 @@ will be closed. Here are some resources to get help:
 - Read the full API reference: https://github.com/VladasCZE/geofire-js/blob/master/docs/reference.md
 - Try out some examples: https://github.com/VladasCZE/geofire-js/blob/master/examples/README.md
 
-If the official documentation doesn't help, try asking through our official support channels:
+If the official documentation doesn't help, try asking through Github Issues.
 
-https://firebase.google.com/support/
+
 
 *Please avoid double posting across multiple channels!*
 
