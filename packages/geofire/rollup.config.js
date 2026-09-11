@@ -1,6 +1,6 @@
 import commonjs from 'rollup-plugin-commonjs';
 import resolveModule from 'rollup-plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
@@ -10,9 +10,7 @@ const GLOBAL_NAME = 'geofire';
 
 const plugins = [
   resolveModule(),
-  typescript({
-    typescript: require('typescript')
-  }),
+  typescript(),
   commonjs()
 ];
 
