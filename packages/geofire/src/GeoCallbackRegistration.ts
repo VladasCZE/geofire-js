@@ -5,7 +5,7 @@ export class GeoCallbackRegistration {
   /**
    * @param _cancelCallback Callback to run when this callback registration is cancelled.
    */
-  constructor(private _cancelCallback: Function) {
+  constructor(private _cancelCallback: Function | null) {
     if (Object.prototype.toString.call(this._cancelCallback) !== '[object Function]') {
       throw new Error('callback must be a function');
     }
@@ -19,9 +19,9 @@ export class GeoCallbackRegistration {
    * has no effect on any other callback registrations you may have created.
    */
   public cancel(): void {
-    if (typeof this._cancelCallback !== 'undefined') {
+    if (this._cancelCallback !== null) {
       this._cancelCallback();
-      this._cancelCallback = undefined;
+      this._cancelCallback = null;
     }
   }
 }

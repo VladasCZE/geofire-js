@@ -39,7 +39,7 @@ export class GeoFire {
    * @param key The key of the location to retrieve.
    * @returns A promise that is fulfilled with the location of the given key.
    */
-  public get(key: string): Promise<Geopoint> {
+  public get(key: string): Promise<Geopoint | null> {
     validateKey(key);
     return get(child(this._firebaseRef, key)).then((dataSnapshot: DataSnapshot) => {
       const snapshotVal = dataSnapshot.val();
@@ -82,8 +82,8 @@ export class GeoFire {
    * @param location The [latitude, longitude] pair to add.
    * @returns A promise that is fulfilled when the write is complete.
    */
-  public set(keyOrLocations: string | any, location?: Geopoint): Promise<any> {
-    let locations;
+  public set(keyOrLocations: string | any, location?: Geopoint | null): Promise<any> {
+    let locations: Record<string, Geopoint | null | undefined>;
     if (typeof keyOrLocations === 'string' && keyOrLocations.length !== 0) {
       // If this is a set for a single location, convert it into a object
       locations = {};
@@ -97,20 +97,20 @@ export class GeoFire {
       throw new Error('keyOrLocations must be a string or a mapping of key - location pairs.');
     }
 
-    const newData = {};
+    const newData: Record<string, any> = {};
 
     Object.keys(locations).forEach((key) => {
       validateKey(key);
 
-      const location: Geopoint = locations[key];
+      const location: Geopoint | null | undefined = locations[key];
       if (location === null) {
         // Setting location to null is valid since it will remove the key
         newData[key] = null;
       } else {
-        validateLocation(location);
+        validateLocation(location as Geopoint);
 
-        const geohash: string = geohashForLocation(location);
-        newData[key] = encodeGeoFireObject(location, geohash);
+        const geohash: string = geohashForLocation(location as Geopoint);
+        newData[key] = encodeGeoFireObject(location as Geopoint, geohash);
       }
     });
 

@@ -82,7 +82,7 @@ export class GeoQuery {
 
   private _geohashCleanupScheduled = false;
   private _cleanUpCurrentGeohashesQueriedInterval: any;
-  private _cleanUpCurrentGeohashesQueriedTimeout = null;
+  private _cleanUpCurrentGeohashesQueriedTimeout: any = null;
 
   /**
    * @param _firebaseRef A Firebase reference where the GeoFire data will be stored.
@@ -105,8 +105,8 @@ export class GeoQuery {
 
     // Validate and save the query criteria
     validateCriteria(queryCriteria, true);
-    this._center = queryCriteria.center;
-    this._radius = queryCriteria.radius;
+    this._center = queryCriteria.center!;
+    this._radius = queryCriteria.radius!;
 
     // Listen for new geohashes being added around this query and fire the appropriate events
     this._listenForNewGeohashes();
@@ -310,12 +310,12 @@ export class GeoQuery {
     const key: string = geoFireGetKey(locationDataSnapshot);
     if (key in this._locationsTracked) {
       get(child(this._firebaseRef, key)).then((snapshot: DataSnapshot) => {
-        const location: Geopoint = (snapshot.val() === null) ? null : decodeGeoFireObject(snapshot.val());
-        const geohash: Geohash = (location !== null) ? geohashForLocation(location) : null;
+        const location: Geopoint | null = (snapshot.val() === null) ? null : decodeGeoFireObject(snapshot.val());
+        const geohash: Geohash | null = (location !== null) ? geohashForLocation(location) : null;
         // Only notify observers if key is not part of any other geohash query or this actually might not be
         // a key exited event, but a key moved or entered event. These events will be triggered by updates
         // to a different query
-        if (!this._geohashInSomeQuery(geohash)) {
+        if (geohash === null || !this._geohashInSomeQuery(geohash)) {
           this._removeLocation(key, location);
         }
       });
@@ -519,12 +519,12 @@ export class GeoQuery {
    * @param key The key to be removed.
    * @param currentLocation The current location as [latitude, longitude] pair or null if removed.
    */
-  private _removeLocation(key: string, currentLocation?: Geopoint): void {
+  private _removeLocation(key: string, currentLocation?: Geopoint | null): void {
     const locationDict = this._locationsTracked[key];
     delete this._locationsTracked[key];
     if (typeof locationDict !== 'undefined' && locationDict.isInQuery) {
-      const distanceFromCenter: number = (currentLocation) ? distanceBetween(currentLocation, this._center) : null;
-      this._fireCallbacksForKey('key_exited', key, currentLocation, distanceFromCenter);
+      const distanceFromCenter: number | null = (currentLocation) ? distanceBetween(currentLocation, this._center) : null;
+      this._fireCallbacksForKey('key_exited', key, currentLocation === null ? undefined : currentLocation, distanceFromCenter === null ? undefined : distanceFromCenter);
     }
   }
 
@@ -552,11 +552,11 @@ export class GeoQuery {
    * @param key The key of the geofire location.
    * @param location The location as [latitude, longitude] pair.
    */
-  private _updateLocation(key: string, location?: Geopoint): void {
+  private _updateLocation(key: string, location: Geopoint): void {
     validateLocation(location);
     // Get the key and location
     const wasInQuery: boolean = (key in this._locationsTracked) ? this._locationsTracked[key].isInQuery : false;
-    const oldLocation: number[] = (key in this._locationsTracked) ? this._locationsTracked[key].location : null;
+    const oldLocation: number[] | null = (key in this._locationsTracked) ? this._locationsTracked[key].location : null;
 
     // Determine if the location is within this query
     const distanceFromCenter: number = distanceBetween(location, this._center);
