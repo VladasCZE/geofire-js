@@ -3,6 +3,37 @@
 Below are instructions for migrating from one version of GeoFire to another. If you are upgrading
 several versions at once, make sure you follow the migration instructions for all upgrades.
 
+## `6.x.x` to `7.x.x`
+
+GeoFire `7.0.0` introduces modern JavaScript and TypeScript enhancements. As a result, there are two primary breaking changes you need to be aware of:
+
+### Dropped Support for ES5 Environments
+To align with modern web standards and TypeScript 7.0 configurations, the GeoFire library is now compiled to `ES2015` (ES6) instead of `ES5`. 
+If you are supporting older browsers (like Internet Explorer 11) or legacy execution environments, you will now need to transpile GeoFire yourself using a build pipeline like Babel, Webpack, or Rollup. Otherwise, you may encounter runtime syntax errors when executing the library.
+
+### Stricter TypeScript Signatures
+We have fully enabled Strict Mode (`"strict": true`) across the library's TypeScript configuration, which resulted in a breaking signature change for TypeScript consumers to properly enforce null-checking.
+
+**The `GeoFire.get()` return type:**
+The `GeoFire.get(key)` method previously typed its return as a guaranteed `Promise<Geopoint>`. However, at runtime, it correctly returns `null` if the key doesn't exist in the database. The signature has now been corrected to `Promise<Geopoint | null>`. 
+
+If you are using TypeScript with `strictNullChecks` enabled, you will need to update your code to safely handle the potential `null` case:
+
+```ts
+// GeoFire 6.x.x (could throw a runtime error if key was missing)
+const location = await geoFire.get('some_key');
+const latitude = location[0]; 
+
+// GeoFire 7.x.x
+const location = await geoFire.get('some_key');
+if (location !== null) {
+  const latitude = location[0];
+} else {
+  // Handle the missing key scenario
+  console.log('Location not found in database');
+}
+```
+
 ## `5.x.x` to `6.x.x`
 
 With the release of GeoFire `6.0.0`, GeoFire now uses the new
