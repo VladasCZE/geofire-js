@@ -555,13 +555,12 @@ export class GeoQuery {
   private _updateLocation(key: string, location?: Geopoint): void {
     validateLocation(location);
     // Get the key and location
-    let distanceFromCenter: number, isInQuery;
     const wasInQuery: boolean = (key in this._locationsTracked) ? this._locationsTracked[key].isInQuery : false;
     const oldLocation: number[] = (key in this._locationsTracked) ? this._locationsTracked[key].location : null;
 
     // Determine if the location is within this query
-    distanceFromCenter = distanceBetween(location, this._center);
-    isInQuery = (distanceFromCenter <= this._radius);
+    const distanceFromCenter: number = distanceBetween(location, this._center);
+    const isInQuery = (distanceFromCenter <= this._radius);
 
     // Add this location to the locations queried dictionary even if it is not within this query
     this._locationsTracked[key] = {
