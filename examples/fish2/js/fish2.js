@@ -1,16 +1,19 @@
-(function() {
-  // Initialize the Firebase SDK
-  initializeApp({
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
+import { getDatabase, ref, push, onValue, onDisconnect } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js';
+import { GeoFire } from 'https://unpkg.com/geofire@7.0.0/dist/geofire/index.esm.js';
+
+// Initialize the Firebase SDK
+  const app = initializeApp({
     apiKey: "s<YOUR_API_KEY>",
     databaseURL: "<YOUR_DB_URL>",
     projectId: "<YOUR_PROJECT_ID>"
   });
 
   // Generate a random Firebase location
-  var firebaseRef = push(ref(getDatabase()));
+  var firebaseRef = push(ref(getDatabase(app)));
 
   // Create a new GeoFire instance at the random Firebase location
-  var geoFireInstance = new geofire.GeoFire(firebaseRef);
+  var geoFireInstance = new GeoFire(firebaseRef);
 
   // Create the locations for each fish
   var fishLocations = [
@@ -104,4 +107,3 @@
     childDiv.appendChild(textNode);
     document.getElementById("log").appendChild(childDiv);
   }
-})();

@@ -45,12 +45,12 @@ $ npm install geofire firebase --save
 Alternatively, you can include GeoFire in your HTML. To do so download a minified or non-minified version of GeoFire from the [releases page of this GitHub repository](https://github.com/VladasCZE/geofire-js/releases). Then, deploy it to Hosting in your Firebase project. 
 
 ```html
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+<!-- Firebase (Compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database-compat.js"></script>
 
-<!-- GeoFire (TODO: substitute in your own project id)-->
-<script src="https://my-firebase-project.web.app/geofire-5.0.1.min.js"></script>
+<!-- GeoFire -->
+<script src="https://my-firebase-project.web.app/geofire-7.0.0.min.js"></script>
 ```
 
 

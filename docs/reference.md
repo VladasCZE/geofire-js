@@ -34,14 +34,15 @@ the location pointed to by `firebaseRef`. Note that this `firebaseRef` can point
 ```JavaScript
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref } from "firebase/database";
+import { GeoFire } from "geofire";
 
 // Initialize the Firebase SDK
-initializeApp({
+const app = initializeApp({
   // ...
 });
 
 // Create a Firebase reference where GeoFire will store its information
-var firebaseRef = ref(getDatabase());
+var firebaseRef = ref(getDatabase(app));
 
 // Create a GeoFire index
 var geoFire = new GeoFire(firebaseRef);

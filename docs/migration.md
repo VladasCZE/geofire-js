@@ -34,6 +34,43 @@ if (location !== null) {
 }
 ```
 
+### Externalized Firebase Dependency in Bundles
+In previous versions, the pre-compiled UMD distribution (`geofire.min.js`) internally bundled its own copy of the Firebase SDK. This caused issues (such as `RangeError: Maximum call stack size exceeded`) when passing a `DatabaseReference` created from an external modern Firebase Modular SDK into GeoFire, due to object structure mismatches.
+
+Starting in `7.0.0`, Firebase is treated strictly as an external `peerDependency` and is **no longer bundled** in the UMD or ESM distributions.
+
+**For ES Module (Bundler or CDN) Users:**
+If you are using the Modular SDK via a bundler (like Webpack, Rollup, Vite) or modern CDNs, GeoFire will now safely share the exact same Firebase instance.
+
+```js
+// Make sure to install firebase if using NPM/Yarn: npm install firebase
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref } from 'firebase/database';
+import { GeoFire } from 'geofire';
+
+const app = initializeApp({ /* config */ });
+const dbRef = ref(getDatabase(app));
+const geoFire = new GeoFire(dbRef);
+```
+
+**For UMD Script Users:**
+If you are loading the GeoFire UMD build via a `<script>` tag, you must now ensure that Firebase is loaded *before* GeoFire, as GeoFire expects the global `firebase.database` object to be available.
+
+```html
+<!-- 1. Load Firebase Compat via CDN -->
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database-compat.js"></script>
+
+<!-- 2. Load GeoFire (now much smaller and unbundled) -->
+<script src="path/to/geofire.min.js"></script>
+
+<script>
+  firebase.initializeApp({ /* config */ });
+  var dbRef = firebase.database().ref();
+  var geoFire = new geofire.GeoFire(dbRef);
+</script>
+```
+
 ## `5.x.x` to `6.x.x`
 
 With the release of GeoFire `6.0.0`, GeoFire now uses the new

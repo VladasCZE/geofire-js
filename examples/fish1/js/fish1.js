@@ -1,17 +1,20 @@
-(function() {
-  // Initialize the Firebase SDK
-  // TODO(DEVELOPER): Change the values below using values from the initialization snippet: Firebase Console > Overview > Add Firebase to your web app.
-  initializeApp({
-    apiKey: "<YOUR_API_KEY>",
-    databaseURL: "<YOUR_DB_URL>",
-    projectId: "<YOUR_PROJECT_ID>"
-  });
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
+import { getDatabase, ref, push } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js';
+import { GeoFire } from 'https://unpkg.com/geofire@7.0.0/dist/geofire/index.esm.js';
 
-  // Generate a random Firebase location
-  var firebaseRef = push(ref(getDatabase()));
+// Initialize the Firebase SDK
+// TODO(DEVELOPER): Change the values below using values from the initialization snippet: Firebase Console > Overview > Add Firebase to your web app.
+const app = const app = initializeApp({
+  apiKey: "<YOUR_API_KEY>",
+  databaseURL: "<YOUR_DB_URL>",
+  projectId: "<YOUR_PROJECT_ID>"
+});
 
-  // Create a new GeoFire instance at the random Firebase location
-  var geoFireInstance = new geofire.GeoFire(firebaseRef);
+// Generate a random Firebase location
+var firebaseRef = push(ref(getDatabase(app)));
+
+// Create a new GeoFire instance at the random Firebase location
+var geoFireInstance = new GeoFire(firebaseRef);
 
   // Specify the locations for each fish
   var fishLocations = [
@@ -24,8 +27,7 @@
   // Set the initial locations of the fish in GeoFire
   log("*** Setting initial locations ***");
   var promises = fishLocations.map(function(location, index) {
-    return geoFireInstance.set("fish" + index, location).then(function() {
-      log("fish" + index + " initially set to [" + location + "]");
+    return geoFireInstance.set("fish" + index, location).thenlog("fish" + index + " initially set to [" + location + "]");
     });
   });
 
@@ -78,4 +80,3 @@
     childDiv.appendChild(textNode);
     document.getElementById("log").appendChild(childDiv);
   }
-})();
