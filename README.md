@@ -1,5 +1,4 @@
-# GeoFire for JavaScript [![Actions Status][gh-actions-badge]][gh-actions] [![Coverage Status](https://coveralls.io/repos/github/VladasCZE/geofire-js/badge.svg?branch=master)](https://coveralls.io/github/VladasCZE/geofire-js?branch=master)
-
+# GeoFire for JavaScript [![Actions Status][gh-actions-badge]][gh-actions]
 GeoFire is an open-source library that allows you to store and query a set of keys based on their
 geographic location. At its heart, GeoFire simply stores locations with string keys. Its main
 benefit, however, is the possibility of retrieving only those keys within a given geographic
