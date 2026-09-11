@@ -37,7 +37,6 @@ read
 echo
 echo "Building and testing"
 npm install
-npm run bootstrap
 npm run build
 npm run test
 
@@ -60,35 +59,7 @@ git commit -am "[release] Version ${next_version}"
 next_version_tag="v${next_version}"
 git tag "${next_version_tag}"
 
-echo
-echo "Logging into npm via wombat-dressing-room (see http://go/npm-publish)."
-echo "   Press <enter> to open browser, then click 'Create 24 hour token'."
-echo "   If you can't open a browser, try logging in from a different machine:"
-echo "     npm login --registry https://wombat-dressing-room.appspot.com"
-echo "   And then copy/paste the resulting ~/.npmrc contents here:"
-echo "   (this will overwrite your current ~/.npmrc)"
-read npmrc
 
-if [[ ! $npmrc == "" ]]; then
-  echo $npmrc > ~/.npmrc
-else
-  npm login --registry https://wombat-dressing-room.appspot.com
-fi
-
-# Publish
-echo
-echo "Publishing geofire-common@${next_version} to npm."
-(
-  cd packages/geofire-common
-  npm publish --registry https://wombat-dressing-room.appspot.com
-)
-
-echo
-echo "Publishing geofire@${next_version} to npm."
-(
-  cd packages/geofire
-  npm publish --registry https://wombat-dressing-room.appspot.com
-)
 
 # Create a separate release notes file to be included in the github release.
 release_notes_file=$(mktemp)

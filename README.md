@@ -1,4 +1,4 @@
-# GeoFire for JavaScript [![Actions Status][gh-actions-badge]][gh-actions] [![Coverage Status](https://coveralls.io/repos/github/VladasCZE/geofire-js/badge.svg?branch=master)](https://coveralls.io/github/VladasCZE/geofire-js?branch=master) [![Version](https://badge.fury.io/gh/firebase%2Fgeofire-js.svg)](http://badge.fury.io/gh/firebase%2Fgeofire-js)
+# GeoFire for JavaScript [![Actions Status][gh-actions-badge]][gh-actions] [![Coverage Status](https://coveralls.io/repos/github/VladasCZE/geofire-js/badge.svg?branch=master)](https://coveralls.io/github/VladasCZE/geofire-js?branch=master)
 
 GeoFire is an open-source library that allows you to store and query a set of keys based on their
 geographic location. At its heart, GeoFire simply stores locations with string keys. Its main
@@ -34,10 +34,10 @@ and [Java](https://github.com/firebase/geofire-java).
 
 ## Add GeoFire to your project
 
-The Firebase JS SDK is a peer dependency of GeoFire. Run the following command to install both libraries:
+Since this package is not published on npm, you can install it directly from GitHub along with the Firebase peer dependency:
 
 ```bash
-$ npm install geofire firebase --save
+$ npm install github:VladasCZE/geofire-js firebase --save
 ```
 
 ### HTML

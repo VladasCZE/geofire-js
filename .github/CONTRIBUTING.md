@@ -75,7 +75,6 @@ set up.
 $ git clone https://github.com/VladasCZE/geofire-js.git
 $ cd geofire-js         # go to the geofire-js directory
 $ npm install           # install local npm build / test dependencies
-$ npm run bootstrap     # bootstrap packages using Lerna
 ```
 
 ### Lint, Build, and Test
