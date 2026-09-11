@@ -1,7 +1,7 @@
 import commonjs from 'rollup-plugin-commonjs';
 import resolveModule from 'rollup-plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const pkg = require('./package.json');

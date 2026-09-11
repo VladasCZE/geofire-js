@@ -4,12 +4,14 @@
   "description": "Monorepo for geofire",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "lint": "lerna run lint",
     "test": "lerna run test",
     "coverage": "lerna run coverage"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "lerna": "10.0.1"
   },
