@@ -82,7 +82,9 @@ describe('geoFireUtils Tests:', () => {
       expect(() => degreesToRadians([1])).to.throw();
       // @ts-ignore
       expect(() => degreesToRadians({})).to.throw();
+      // @ts-ignore
       expect(() => degreesToRadians(null)).to.throw();
+      // @ts-ignore
       expect(() => degreesToRadians(undefined)).to.throw();
     });
 

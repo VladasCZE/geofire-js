@@ -46,16 +46,22 @@ describe('GeoQuery Tests:', () => {
       expect(() => geoFire.query({ center: [1, [1, 2]], radius: 1000 })).to.throw();
       // @ts-ignore
       expect(() => geoFire.query({ center: 1000, radius: 1000 })).to.throw();
+      // @ts-ignore
       expect(() => geoFire.query({ center: null, radius: 1000 })).to.throw();
+      // @ts-ignore
       expect(() => geoFire.query({ center: undefined, radius: 1000 })).to.throw();
+      // @ts-ignore
       expect(() => geoFire.query({ center: [null, 2], radius: 1000 })).to.throw();
+      // @ts-ignore
       expect(() => geoFire.query({ center: [1, undefined], radius: 1000 })).to.throw();
       expect(() => geoFire.query({ center: [1, 2], radius: -10 })).to.throw();
       // @ts-ignore
       expect(() => geoFire.query({ center: [1, 2], radius: 'text' })).to.throw();
       // @ts-ignore
       expect(() => geoFire.query({ center: [1, 2], radius: [1, 2] })).to.throw();
+      // @ts-ignore
       expect(() => geoFire.query({ center: [1, 2], radius: null })).to.throw();
+      // @ts-ignore
       expect(() => geoFire.query({ center: [1, 2], radius: undefined })).to.throw();
       // @ts-ignore
       expect(() => geoFire.query({ center: [1, 2], radius: 1000, other: 'throw' })).to.throw();

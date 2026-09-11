@@ -25,7 +25,7 @@ describe('GeoFire GeoCallbackRegistration Tests:', () => {
         return new GeoCallbackRegistration('nonFunction');
       };
 
-      expect(() => createCallbackRegistration()).to.throw(null, 'callback must be a function');
+      expect(() => createCallbackRegistration()).to.throw('callback must be a function');
     });
   });
 

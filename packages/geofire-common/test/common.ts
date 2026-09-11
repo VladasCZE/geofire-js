@@ -52,7 +52,7 @@ export function wait(milliseconds) {
 }
 
 /* Keeps track of all the current asynchronous tasks being run */
-export function Checklist(items, expect, done) {
+export function Checklist(this: any, items: any, expect: any, done: any) {
   const eventsToComplete = items;
 
   /* Removes a task from the events list */
